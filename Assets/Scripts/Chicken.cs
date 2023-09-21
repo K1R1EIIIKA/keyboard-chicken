@@ -19,6 +19,8 @@ public class Chicken : MonoBehaviour
     public int ScoreToSizeUp = 1;
     [SerializeField]
     public int[] ScoreToSizes;
+    [SerializeField]
+    public float[] ChickenScalers;
     public ChichenSize chichenSize = ChichenSize.tiny;
     public Sprite[] SizeSprites;
     public void GetScore(int Score)
@@ -34,12 +36,7 @@ public class Chicken : MonoBehaviour
     public void ChangeSize()
     {
         Transform transform = GetComponent<Transform>();
-        float nowscale = 0;
-        if (chichenSize == ChichenSize.tiny)
-            nowscale = 1.2f;
-        else if (chichenSize == ChichenSize.small)
-            nowscale = 1.5f;
-        else nowscale = 20f;
+        float nowscale = ChickenScalers[(int)chichenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
         GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chichenSize];
         chichenSize++;
