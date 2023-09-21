@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dotDelete : MonoBehaviour
+public class CrumbMovement : MonoBehaviour
 {
 
     public float speed = 0.1f;
