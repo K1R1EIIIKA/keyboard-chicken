@@ -43,4 +43,13 @@ public class ChickenShoot : MonoBehaviour
         yield return new WaitForSeconds(shootCooldown);
         _isCooldown = false;
     }
+    public void OnTriggerEnter(Collider other)
+    {
+        BaseCrumb crumb = other.GetComponent<BaseCrumb>();
+        if(crumb != null)
+        {
+            crumb.GetHit();
+            //GetScore(crumb.GetScore());
+        }
+    }
 }
