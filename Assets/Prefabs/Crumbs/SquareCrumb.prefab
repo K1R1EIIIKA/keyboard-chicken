@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3567989269904754585}
   m_Layer: 0
   m_Name: SquareCrumb
-  m_TagString: Untagged
+  m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6f02f18ff4f4b4eb43e6e524fd5509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.2
+  Speed: 4
   Score: 1
   Size: 1.5
 --- !u!114 &3567989269904754585
