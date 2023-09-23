@@ -6,6 +6,7 @@ public class Chicken_Grow : MonoBehaviour
 {
     public float grow;
     public float foodAmount;
+    public float _scaleX = 1f, _scaleY = 1f, _scaleZ = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,11 @@ public class Chicken_Grow : MonoBehaviour
             {
                  transform.localScale += new Vector3(grow,grow,grow); 
             }
+        }
+        if (collision.CompareTag("Enemy"))
+        {
+            Checken chicken = other.GetComponent<chicken>();
+            chicken.GetHit();
         }
 
     }
