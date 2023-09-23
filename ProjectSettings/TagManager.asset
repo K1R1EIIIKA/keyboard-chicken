@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Destr
   - Food
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - Dot
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 

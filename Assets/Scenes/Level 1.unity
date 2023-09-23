@@ -1638,6 +1638,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleCrumb2
       objectReference: {fileID: 0}
+    - target: {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7860827431119958835, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.59
@@ -2194,6 +2202,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   grow: 0.5
   foodAmount: 0
+  _scaleX: 1
+  _scaleY: 1
+  _scaleZ: 1
 --- !u!1001 &1904910091
 PrefabInstance:
   m_ObjectHideFlags: 0
