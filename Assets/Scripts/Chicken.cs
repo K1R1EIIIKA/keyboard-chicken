@@ -14,16 +14,22 @@ public class Chicken : MonoBehaviour
         average,
         SuperPuperMegaCHICKEN
     }
-    public int score=0;
-    private  GameController gameController=new GameController();
+    public int score = 0;
     public int ScoreToSizeUp = 1;
     [SerializeField]
     public int[] ScoreToSizes;
-    public int ScoreToNextLvl=999;
+    public int ScoreToNextLvl = 999;
     [SerializeField]
     public float[] ChickenScalers;
     public ChichenSize chichenSize = ChichenSize.tiny;
     public Sprite[] SizeSprites;
+    [SerializeField] private GameController gameController;
+    [SerializeField] private AudioSource soundSource;
+    [SerializeField] private AudioClip ChickenGetHitSound;
+    [SerializeField] private AudioClip ChickenSizeUpSound;
+    [SerializeField] private AudioClip ChickenSizeDownSound;
+    [SerializeField] private AudioClip ChickenStepSound;
+    [SerializeField] private AudioClip ChickenSpitSound;
     void Awake()
     {
         ScoreToSizeUp = ScoreToSizes[0];
@@ -31,26 +37,79 @@ public class Chicken : MonoBehaviour
     public void GetScore(int Score)
     {
         score += Score;
-        ScoreUI.instance.SetScoreText(score);
         ScoreToSizeUp -= Score;
-        if (ScoreToSizeUp < 0 && chichenSize < ChichenSize.SuperPuperMegaCHICKEN)
+        if (ScoreToSizeUp < 1 )
         {
-            ChangeSize();
-            ScoreToSizeUp = ScoreToSizes[(int)chichenSize] - Score;
+            if (chichenSize < ChichenSize.SuperPuperMegaCHICKEN)
+            {
+                IncreaseSize();
+                gameController.LoadNextLevel();
+                ScoreToSizeUp = ScoreToSizes[(int)chichenSize] - score;
+            }
+            else UWin();
         }
-        if (Score >= ScoreToNextLvl)
-        {
-            gameController.LoadNextLevel();
-        }
+        SetScoreUI();
     }
-    public void ChangeSize()
+
+    private void UWin()
     {
-        //PlaySizeUpAnimation();
+        //PlayEngGameScene();
+    }
+
+    public int GetChickenSize() => (int)chichenSize;
+    private void SetScoreUI()
+    {
+        ScoreUI.instance.SetScoreText(score);
+    }
+
+    public void IncreaseSize()
+    {
+        chichenSize++;
+        //PlayAnimation(SizeUp);
+        PlaySound(ChickenSizeUpSound);
+        ChangeScale();
+        ChangeSprite();
+    }
+    public void DecreaseSize()
+    {
+        chichenSize--;
+        //PlayAnimation(SizeDown);
+        PlaySound(ChickenSizeDownSound);
+        ChangeScale();
+        ChangeSprite();
+    }
+    void ChangeScale()
+    {
         Transform transform = GetComponent<Transform>();
         float nowscale = ChickenScalers[(int)chichenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
+    }
+    void ChangeSprite()
+    {
         GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chichenSize];
-        chichenSize++;
+    }
+    void PlaySound(AudioClip clip)
+    {
+        soundSource.PlayOneShot(clip);
+    }
+   
+    public void GetHit()
+    {
+        Debug.Log("ChickenGetHit()");
+       
+        //PlayAnimation(GetHit);
+        PlaySound(ChickenGetHitSound);
+        DecreaseSize();
+    }
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("ChickenTriggerEnter()");
+        EnemyButton enemyButton= collider.gameObject.GetComponent<EnemyButton>();
+        if(enemyButton != null)
+        {
+            GetHit();
+        }
+        
     }
     private void Update()
     {

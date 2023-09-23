@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    private CrumbCreator crumbCreator;
+    [SerializeField] private CrumbCreator crumbCreator;
+    private void Awake()
+    {
+    }
     private void Start()
     {
-        crumbCreator = GameObject.Find("Spawn").GetComponent<CrumbCreator>();
+       // crumbCreator = GameObject.Find("Spawn").GetComponent<CrumbCreator>();
     }
     public void LoadNextLevel()
     {
