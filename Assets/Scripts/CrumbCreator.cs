@@ -12,6 +12,8 @@ public class CrumbCreator : MonoBehaviour
     public float spawnDelay;
     public float nextSpawn = 0.0f;
     public int crumbToSwawnAmount = 3;
+    public int coefficient = 3;
+    private int _goodOrEvil;
 
     void Update()
     {
@@ -21,12 +23,23 @@ public class CrumbCreator : MonoBehaviour
            
             for (int i = 0; i < Random.Range(1, crumbToSwawnAmount); i++)
             {
-                
+
+
+
                     nextSpawn = Time.time + spawnDelay;
                     randomY = Random.Range(-4.5f, 4.5f);
+                if (Random.Range(1, 11) < coefficient)
+                {
+                        whereToSpawn = new Vector2(transform.position.x, randomY);
+                        Enemy = Instantiate(crumbs[Random.Range(0, crumbs.Length)], whereToSpawn, Quaternion.identity);
+                }
+                else
+                {
                     whereToSpawn = new Vector2(transform.position.x, randomY);
-                    Enemy = Instantiate(crumbs[Random.Range(0, crumbToUse)], whereToSpawn, Quaternion.identity);
-                    
+                    Enemy = Instantiate(crumbWithMass[Random.Range(0, crumbWithMass.Length)], whereToSpawn, Quaternion.identity);
+                }
+
+
 
                 Destroy(Enemy, 6f);
                 

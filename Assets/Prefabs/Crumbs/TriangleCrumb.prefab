@@ -162,7 +162,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6f02f18ff4f4b4eb43e6e524fd5509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 6
   Score: 2
   Size: 2
 --- !u!114 &-751703489687513744
@@ -177,4 +176,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7acefd31a32d9a41947d06041aea49b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.1
+  speed: 5
