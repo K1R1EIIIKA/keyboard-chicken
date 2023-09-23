@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 6639600598126308093}
   - component: {fileID: 769400675810466587}
   - component: {fileID: 7759764722339113647}
-  - component: {fileID: -3177195613135513920}
-  - component: {fileID: 3567989269904754585}
+  - component: {fileID: -8309743497757219585}
+  - component: {fileID: 8066537478571922469}
   m_Layer: 0
-  m_Name: SquareCrumb
+  m_Name: CircleCrumb2
   m_TagString: Food
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 5029739115031181230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.77, y: 2.44, z: 0}
-  m_LocalScale: {x: 0.3601, y: 0.3601, z: 0.3601}
+  m_LocalPosition: {x: 8.906, y: 2.44, z: 0}
+  m_LocalScale: {x: 0.63215554, y: 0.3601, z: 0.3601}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.7830189, g: 0.14404595, b: 0.14404595, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -150,7 +150,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3177195613135513920
+--- !u!114 &-8309743497757219585
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6f02f18ff4f4b4eb43e6e524fd5509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 1
-  Size: 1.5
---- !u!114 &3567989269904754585
+  Score: 2
+  Size: 2
+--- !u!114 &8066537478571922469
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
