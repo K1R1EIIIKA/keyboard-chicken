@@ -8,17 +8,19 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class Tongue : MonoBehaviour
 {
 
-    [SerializeField] private AudioSource TongueSound;
-    public Renderer renderer;
+    [SerializeField] private AudioSource SoundSouce;
+    [SerializeField] private AudioClip ChickenEatSound;
+
+    //[SerializeField] public Renderer renderer;
 
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
-        renderer.enabled = true;
+        //renderer = GetComponent<Renderer>();
+        //renderer.enabled = true;
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.name);
+        Debug.Log("TongueOnTriggerEnter2D");
         BaseCrumb crumb = other.GetComponent<BaseCrumb>();
         Chicken chicken = GetComponentInParent<Chicken>();
         //Enemy enemy=other.GetComponent<Enemy>();
@@ -52,7 +54,6 @@ public class Tongue : MonoBehaviour
     }
     void PlayTongueSound()
     {
-        if(!TongueSound.isPlaying)
-            TongueSound.Play();
+        SoundSouce.PlayOneShot(ChickenEatSound);
     }
 }

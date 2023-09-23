@@ -11,7 +11,7 @@ public class BaseCrumb : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
-    public int GetScore() => Score;
+    public int GetScore() => Score; 
 
 
 }
