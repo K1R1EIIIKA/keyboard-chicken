@@ -22,8 +22,8 @@ public class Chicken_Grow : MonoBehaviour
         }
         if (collision.CompareTag("Enemy"))
         {
-            Checken chicken = other.GetComponent<chicken>();
-            chicken.GetHit();
+            //Checken chicken = other.GetComponent<chicken>();
+           // chicken.GetHit();
         }
 
     }

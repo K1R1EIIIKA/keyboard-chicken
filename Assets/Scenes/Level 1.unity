@@ -726,6 +726,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 657950324}
+  - component: {fileID: 657950325}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -748,6 +749,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &657950325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 657950323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 911a6ce2c99b75a49be1c412c910baba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crumbCreator: {fileID: 0}
 --- !u!1 &740859971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2439,6 +2453,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808209967}
   - component: {fileID: 1808209968}
+  - component: {fileID: 1808209969}
   m_Layer: 0
   m_Name: Tongue
   m_TagString: Untagged
@@ -2455,8 +2470,8 @@ Transform:
   m_GameObject: {fileID: 1808209966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.12, y: -0.19, z: 0}
+  m_LocalScale: {x: 0.07, y: -0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1835707689}
@@ -2475,6 +2490,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SoundSouce: {fileID: 519420033}
   ChickenEatSound: {fileID: 8300000, guid: 94d350cb7d5eec04f9f6abefe644ab91, type: 3}
+--- !u!61 &1808209969
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808209966}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1835707685
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,20 +2732,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   ScoreToSizeUp: 1
-  ScoreToSizes: 030000000500000008000000
+  ScoreToSizes: 0300000005000000080000000a000000
   ScoreToNextLvl: 3
   ChickenScalers:
   - 1
   - 1.1
   - 1.3
-  - 20
+  - 10
   chichenSize: 0
   SizeSprites:
   - {fileID: 21300000, guid: 41f8dd971a5c049478ee686a447bb8a8, type: 3}
   - {fileID: 21300000, guid: bc3a4b001e3f36a4fbca08096444d76c, type: 3}
   - {fileID: 21300000, guid: 698aeec27bfd67645af7b4223d2072cf, type: 3}
   - {fileID: 21300000, guid: 39ac426529665064da31b7e58369804f, type: 3}
-  gameController: {fileID: 0}
+  gameController: {fileID: 657950325}
   soundSource: {fileID: 519420033}
   ChickenGetHitSound: {fileID: 0}
   ChickenSizeUpSound: {fileID: 0}
@@ -2778,6 +2838,7 @@ MonoBehaviour:
   spawnDelay: 0.8
   nextSpawn: 0
   crumbToSwawnAmount: 3
+  coefficient: 3
 --- !u!4 &1934499913
 Transform:
   m_ObjectHideFlags: 0
@@ -2786,59 +2847,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934499910}
   serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5029739115031181230, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_Name
-      value: TriangleCrumb
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -15.2300005
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7860827431119958835, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1942923707
 GameObject:
   m_ObjectHideFlags: 0
@@ -3054,17 +3069,14 @@ SceneRoots:
   - {fileID: 274253109}
   - {fileID: 255396216}
   - {fileID: 330341423}
-  - {fileID: 1904910091}
   - {fileID: 210376973}
   - {fileID: 1535179412}
   - {fileID: 1355535632}
   - {fileID: 657950324}
   - {fileID: 1655633647}
-  - {fileID: 2045672406}
   - {fileID: 898419850}
   - {fileID: 1778103825}
   - {fileID: 834175501}
   - {fileID: 466457616}
   - {fileID: 1011617000}
   - {fileID: 1700247938}
-  - {fileID: 1536047662}
