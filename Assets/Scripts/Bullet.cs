@@ -7,7 +7,8 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public GameObject[] crumbWithMass;
     public Rigidbody2D rb;
-    // Start is called before the first frame update
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip CrumbCrashSound;//ok
     void FixedUpdate()
     {
         rb.velocity = transform.right * speed;
@@ -17,6 +18,7 @@ public class Bullet : MonoBehaviour
     {
         if (hitInfo.CompareTag("Enemy"))
         {
+            source.PlayOneShot(CrumbCrashSound);
             GameObject Enemy;
             BaseCrumb baseCrumb = hitInfo.gameObject.GetComponent<BaseCrumb>();
             Enemy = Instantiate(crumbWithMass[Random.Range(0, crumbWithMass.Length)],new Vector2(baseCrumb.transform.position.x, baseCrumb.transform.position.y), Quaternion.identity);

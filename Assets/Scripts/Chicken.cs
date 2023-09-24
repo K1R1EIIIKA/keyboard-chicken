@@ -32,24 +32,28 @@ public class Chicken : MonoBehaviour
     public ChickenSize chickenSize = ChickenSize.Tiny;
     public ChickenAge chickenAge = ChickenAge.First;
     public Sprite[] SizeSprites;
+    private Animator animator;
 
     [SerializeField] private GameController gameController;
     [SerializeField] private AudioSource soundSource;
-    [SerializeField] private AudioClip ChickenGetHitSound;
-    [SerializeField] private AudioClip ChickenSizeUpSound;
-    [SerializeField] private AudioClip ChickenSizeDownSound;
+    [SerializeField] private AudioClip ChickenGetHitSound;//ok
+    [SerializeField] private AudioClip ChickenSizeUpSound;//ok
+    [SerializeField] private AudioClip ChickenSizeDownSound;//ok
     [SerializeField] private AudioClip ChickenStepSound;
-    [SerializeField] private AudioClip ChickenSpitSound;
+    [SerializeField] private AudioClip ChickenFlySound;
+    [SerializeField] private AudioClip ChickenTongueSound;//ok
 
     void Awake()
     {
         ScoreToSizeUp = ScoreToSizes[0];
+        animator = gameObject.GetComponent<Animator>();
     }
 
     public void GetScore(int Score)
     {
         score += Score;
         ScoreToSizeUp -= Score;
+        PlaySound(ChickenTongueSound);
         if (ScoreToSizeUp < 1)
         {
             if (chickenSize < ChickenSize.SuperPuperMegaCHICKEN)
@@ -81,7 +85,7 @@ public class Chicken : MonoBehaviour
     public void IncreaseSize()
     {
         chickenSize++;
-        //PlayAnimation(SizeUp);
+        //animator.SetBool("IsRunnning", true);
         PlaySound(ChickenSizeUpSound);
         ChangeScale();
         ChangeSprite();
@@ -130,12 +134,6 @@ public class Chicken : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("ChickenTriggerEnter()");
-        EnemyButton enemyButton = collider.gameObject.GetComponent<EnemyButton>();
-        if (enemyButton != null)
-        {
-            GetHit();
-        }
-
         if (collider.CompareTag("Enemy") || collider.CompareTag("EnemySmall"))
         {
             if ((int)chickenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chickenSize])

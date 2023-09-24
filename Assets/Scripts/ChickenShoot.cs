@@ -8,7 +8,8 @@ public class ChickenShoot : MonoBehaviour
 {
     [SerializeField] private float shootPushback = 1f;
     [SerializeField] private float shootCooldown = 0.5f;
-    [SerializeField] private Tongue tongue;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip SpitSound;//ok
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -19,7 +20,6 @@ public class ChickenShoot : MonoBehaviour
     private void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-        tongue=GetComponentInChildren<Tongue>();
     }
 
     private void Update()
@@ -33,10 +33,17 @@ public class ChickenShoot : MonoBehaviour
     private void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        source.PlayOneShot(SpitSound);
         PushBack();
-        tongue.Shoot();
+        PlayShootAnimation();
          _isCooldown = true;
         StartCoroutine(ShootCooldown());
+
+    }
+
+    private void PlayShootAnimation()
+    {
+
     }
 
     private IEnumerator ShootCooldown()
