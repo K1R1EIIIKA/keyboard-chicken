@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float speed = 20f;
+    public GameObject[] crumbWithMass;
     public Rigidbody2D rb;
     // Start is called before the first frame update
     void FixedUpdate()
@@ -15,7 +15,18 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D hitInfo)
     {
-        /*Debug.Log(hitInfo.name);
-        Destroy(gameObject);*/
+        if (hitInfo.CompareTag("Enemy"))
+        {
+            GameObject Enemy;
+            BaseCrumb baseCrumb = hitInfo.gameObject.GetComponent<BaseCrumb>();
+            Enemy = Instantiate(crumbWithMass[Random.Range(0, crumbWithMass.Length)],new Vector2(baseCrumb.transform.position.x, baseCrumb.transform.position.y), Quaternion.identity);
+            Enemy = Instantiate(crumbWithMass[Random.Range(0, crumbWithMass.Length)], new Vector2(baseCrumb.transform.position.x, baseCrumb.transform.position.y), Quaternion.identity);
+            Enemy = Instantiate(crumbWithMass[Random.Range(0, crumbWithMass.Length)], new Vector2(baseCrumb.transform.position.x, baseCrumb.transform.position.y), Quaternion.identity);
+            Destroy(Enemy, 6f);
+            baseCrumb.GetHit();
+            Debug.Log(hitInfo.name);
+            Destroy(gameObject);
+        }
+            
     }
 }
