@@ -99,8 +99,6 @@ public class Chicken : MonoBehaviour
     void ChangeScale()
     {
         Transform transform = GetComponent<Transform>();
-        Debug.Log("Chickensize:" + (int)chickenSize);
-        Debug.Log("nowscale:" + ChickenScalers[(int)chickenSize]);
         float nowscale = ChickenScalers[(int)chickenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
     }
