@@ -7,14 +7,16 @@ public class GameController : MonoBehaviour
 {
     //wtf u using for?? idk...
     [SerializeField] private CrumbCreator crumbCreator;
-    
+
     private void Awake()
     {
     }
+
     private void Start()
     {
-       // crumbCreator = GameObject.Find("Spawn").GetComponent<CrumbCreator>();
+        // crumbCreator = GameObject.Find("Spawn").GetComponent<CrumbCreator>();
     }
+
     public void LoadNextLevel()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

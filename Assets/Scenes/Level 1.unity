@@ -907,11 +907,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2055201984315238169, guid: c39abdad88bb03f4bab99026f72b56b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.24
+      value: -3.42
       objectReference: {fileID: 0}
     - target: {fileID: 2055201984315238169, guid: c39abdad88bb03f4bab99026f72b56b2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.43
+      value: -1.3
       objectReference: {fileID: 0}
     - target: {fileID: 2055201984315238169, guid: c39abdad88bb03f4bab99026f72b56b2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1839,8 +1839,8 @@ GameObject:
   - component: {fileID: 1203004078}
   - component: {fileID: 1203004077}
   m_Layer: 0
-  m_Name: Square (1)
-  m_TagString: Untagged
+  m_Name: Ground
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2944,6 +2944,7 @@ GameObject:
   - component: {fileID: 1835707689}
   - component: {fileID: 1835707688}
   - component: {fileID: 1835707690}
+  - component: {fileID: 1835707694}
   - component: {fileID: 1835707691}
   - component: {fileID: 1835707686}
   - component: {fileID: 1835707692}
@@ -3043,7 +3044,7 @@ Transform:
   m_GameObject: {fileID: 1835707685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.18, y: -3.22, z: 0}
+  m_LocalPosition: {x: -1.1386, y: -1.3587, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3066,6 +3067,7 @@ MonoBehaviour:
   downSpeed: 3
   flyForce: 4.5
   velocityNormalizeSpeed: 0.04
+  animator: {fileID: 1835707694}
 --- !u!114 &1835707691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,7 +3153,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.68, y: 0.62}
+    oldSize: {x: 4.857143, y: 4.428571}
     newSize: {x: 0.68, y: 0.62}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3160,6 +3162,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.22768784, y: 0.1747554}
   m_EdgeRadius: 0
+--- !u!95 &1835707694
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835707685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3385b8fa71f6ecc4482f8192a8be3fac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1934499910
 GameObject:
   m_ObjectHideFlags: 0

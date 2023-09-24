@@ -9,10 +9,12 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ButtonFallSound;
     [SerializeField] private AudioClip CrumbDestructionSound;
+
     void Awake()
     {
         instance = this;
     }
+
     private void PlaySound(AudioClip clip)
     {
         soundSource.PlayOneShot(clip);
