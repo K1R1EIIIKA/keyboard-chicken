@@ -138,7 +138,7 @@ public class Chicken : MonoBehaviour
             GetHit();
         }
 
-        if (collider.CompareTag("Enemy"))
+        if (collider.CompareTag("Enemy") || collider.CompareTag("EnemySmall"))
         {
             if ((int)chickenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chickenSize])
             {
@@ -147,7 +147,15 @@ public class Chicken : MonoBehaviour
 
             else
             {
-                ScoreToSizeUp += 2;
+                if (collider.CompareTag("Enemy"))
+                {
+                    ScoreToSizeUp += 6;
+                }
+                else
+                {
+                    ScoreToSizeUp += 1;
+                }
+
             }
             
             if ((int)chickenSize >= 1 &&
