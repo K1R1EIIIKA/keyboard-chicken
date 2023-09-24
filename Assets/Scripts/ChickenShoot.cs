@@ -9,6 +9,8 @@ public class ChickenShoot : MonoBehaviour
     [SerializeField] private float shootPushback = 1f;
     [SerializeField] private float shootCooldown = 0.5f;
     [SerializeField] private Tongue tongue;
+    public Transform firePoint;
+    public GameObject bulletPrefab;
 
     private Rigidbody2D _rb;
     private bool _isCooldown;
@@ -30,6 +32,7 @@ public class ChickenShoot : MonoBehaviour
 
     private void Shoot()
     {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         PushBack();
         tongue.Shoot();
          _isCooldown = true;
