@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    //wtf u using for?? idk...
     [SerializeField] private CrumbCreator crumbCreator;
+    
     private void Awake()
     {
     }
@@ -16,6 +18,6 @@ public class GameController : MonoBehaviour
     public void LoadNextLevel()
     {
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        crumbCreator.crumbToUse++;
+        //crumbCreator.crumbToUse++;
     }
 }

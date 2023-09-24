@@ -81,6 +81,8 @@ public class Chicken : MonoBehaviour
     void ChangeScale()
     {
         Transform transform = GetComponent<Transform>();
+        Debug.Log("Chickensize:"+ (int)chichenSize);
+        Debug.Log("nowscale:" + ChickenScalers[(int)chichenSize]);
         float nowscale = ChickenScalers[(int)chichenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
     }
@@ -92,14 +94,15 @@ public class Chicken : MonoBehaviour
     {
         soundSource.PlayOneShot(clip);
     }
-   
+
     public void GetHit()
     {
         Debug.Log("ChickenGetHit()");
-       
-        //PlayAnimation(GetHit);
-        PlaySound(ChickenGetHitSound);
-        DecreaseSize();
+        if (GetChickenSize() > 0)
+        {   //PlayAnimation(GetHit);
+            PlaySound(ChickenGetHitSound);
+            DecreaseSize();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {

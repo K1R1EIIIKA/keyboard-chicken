@@ -19,8 +19,6 @@ public class EnemyButton : MonoBehaviour
     {
         damageCollider.enabled = true;
     }
-
-    // Функция для деактивации зоны поражения
     public void DeactivateDamageZone()
     {
         damageCollider.enabled = false;
