@@ -1502,7 +1502,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &906041461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,7 +1526,7 @@ MonoBehaviour:
     - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
     spawnDelay: 1
     crumbToSpawnAmount: 1
-    coefficient: 3
+    coefficient: 9
   SecondLevel:
     CrumbPrefabs:
     - {fileID: 5029739115031181230, guid: 915a644ecd1328e41997c15c33bc9ab4, type: 3}
@@ -2868,7 +2868,7 @@ Transform:
   m_GameObject: {fileID: 1808209966}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: -0.19, z: 0}
+  m_LocalPosition: {x: 0.549, y: -1.411, z: 0}
   m_LocalScale: {x: 0.07, y: -0.03, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2920,7 +2920,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 1.6978369, y: 6.993365}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2931,7 +2931,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10.859892, y: 33.919834}
   m_EdgeRadius: 0
 --- !u!1 &1835707685
 GameObject:
@@ -2948,7 +2948,7 @@ GameObject:
   - component: {fileID: 1835707691}
   - component: {fileID: 1835707686}
   - component: {fileID: 1835707692}
-  - component: {fileID: 1835707693}
+  - component: {fileID: 1835707695}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Player
@@ -3029,7 +3029,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.68, y: 0.62}
+  m_Size: {x: 4.857143, y: 4.428571}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -3044,7 +3044,7 @@ Transform:
   m_GameObject: {fileID: 1835707685}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.1386, y: -1.3587, z: 0}
+  m_LocalPosition: {x: -3.77, y: -1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3117,7 +3117,28 @@ MonoBehaviour:
   ChickenSizeDownSound: {fileID: 0}
   ChickenStepSound: {fileID: 0}
   ChickenSpitSound: {fileID: 0}
---- !u!61 &1835707693
+--- !u!95 &1835707694
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835707685}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3385b8fa71f6ecc4482f8192a8be3fac, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!61 &1835707695
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3149,40 +3170,19 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.022969007, y: -0.2226223}
+  m_Offset: {x: -0.13779747, y: -1.6340109}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 4.857143, y: 4.428571}
-    newSize: {x: 0.68, y: 0.62}
+    newSize: {x: 4.857143, y: 4.428571}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22768784, y: 0.1747554}
+  m_Size: {x: 1.4487863, y: 1.1605489}
   m_EdgeRadius: 0
---- !u!95 &1835707694
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835707685}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3385b8fa71f6ecc4482f8192a8be3fac, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1934499910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3214,8 +3214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartSpawnDelay: 0
   FirstLevel:
-    MinSpawnDelay: 0.1
-    MaxSpawnDelay: 0.2
+    MinSpawnDelay: 0.5
+    MaxSpawnDelay: 1
     DamageDelay: 0
     EnemyButtons:
     - {fileID: 4022959172970112056, guid: 519b6e0fdd45b1343966ac59a30670e6, type: 3}

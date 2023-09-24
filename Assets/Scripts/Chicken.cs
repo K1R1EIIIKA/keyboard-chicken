@@ -14,13 +14,12 @@ public class Chicken : MonoBehaviour
         average,
         SuperPuperMegaCHICKEN
     }
+
     public int score = 0;
     public int ScoreToSizeUp = 1;
-    [SerializeField]
-    public int[] ScoreToSizes;
+    [SerializeField] public int[] ScoreToSizes;
     public int ScoreToNextLvl = 999;
-    [SerializeField]
-    public float[] ChickenScalers;
+    [SerializeField] public float[] ChickenScalers;
     public ChichenSize chichenSize = ChichenSize.tiny;
     public Sprite[] SizeSprites;
     [SerializeField] private GameController gameController;
@@ -35,6 +34,7 @@ public class Chicken : MonoBehaviour
     {
         ScoreToSizeUp = ScoreToSizes[0];
     }
+
     public void GetScore(int Score)
     {
         score += Score;
@@ -49,6 +49,7 @@ public class Chicken : MonoBehaviour
             }
             else UWin();
         }
+
         SetScoreUI();
     }
 
@@ -58,6 +59,7 @@ public class Chicken : MonoBehaviour
     }
 
     public int GetChickenSize() => (int)chichenSize;
+
     private void SetScoreUI()
     {
         ScoreUI.instance.SetScoreText(score);
@@ -71,6 +73,7 @@ public class Chicken : MonoBehaviour
         ChangeScale();
         ChangeSprite();
     }
+
     public void DecreaseSize()
     {
         chichenSize--;
@@ -79,6 +82,7 @@ public class Chicken : MonoBehaviour
         ChangeScale();
         ChangeSprite();
     }
+
     void ChangeScale()
     {
         Transform transform = GetComponent<Transform>();
@@ -87,10 +91,12 @@ public class Chicken : MonoBehaviour
         float nowscale = ChickenScalers[(int)chichenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
     }
+
     void ChangeSprite()
     {
         GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chichenSize];
     }
+
     void PlaySound(AudioClip clip)
     {
         soundSource.PlayOneShot(clip);
@@ -100,14 +106,16 @@ public class Chicken : MonoBehaviour
     {
         Debug.Log("ChickenGetHit()");
         if (GetChickenSize() > 0)
-        {   //PlayAnimation(GetHit);
+        {
+            //PlayAnimation(GetHit);
             PlaySound(ChickenGetHitSound);
             DecreaseSize();
             score = ScoreToSizes[(int)chichenSize];
-            ScoreToSizeUp= ScoreToSizes[(int)chichenSize+1]- ScoreToSizes[(int)chichenSize];
+            ScoreToSizeUp = ScoreToSizes[(int)chichenSize + 1] - ScoreToSizes[(int)chichenSize];
             SetScoreUI();
         }
     }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("ChickenTriggerEnter()");
@@ -116,6 +124,7 @@ public class Chicken : MonoBehaviour
         {
             GetHit();
         }
+
         if (collider.CompareTag("Enemy"))
         {
             if ((int)chichenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chichenSize])
@@ -139,13 +148,11 @@ public class Chicken : MonoBehaviour
             BaseCrumb baseCrumb = collider.gameObject.GetComponent<BaseCrumb>();
             baseCrumb.GetHit();
         }
-
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
             GetScore(1);
     }
-
-    
 }

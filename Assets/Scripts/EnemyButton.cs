@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class EnemyButton : MonoBehaviour
 {
-    [SerializeField] private float AnimationSpeed=1;
-    [SerializeField] private float DamageDelay=0;
+    [SerializeField] private float AnimationSpeed = 1;
+    [SerializeField] private float DamageDelay = 0;
     [SerializeField] private BoxCollider2D damageCollider;
     [SerializeField] private Chicken chicken;
     private bool playerInside = false;
     [SerializeField] private AnimationClip animationClip;
     [SerializeField] private Animator animator;
+
     IEnumerator method()
     {
         yield return new WaitForSeconds(DamageDelay);
-        if(playerInside)
+        if (playerInside)
         {
             chicken.GetHit();
         }
+
         Destroy(this);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -35,13 +38,14 @@ public class EnemyButton : MonoBehaviour
             playerInside = false;
         }
     }
+
     private void Start()
     {
-        animator = GetComponent<Animator>();
         Debug.Log("StartAnimation");
         StartAnimation();
         StartCoroutine(method());
     }
+
     public void StartAnimation()
     {
         Debug.Log("AnimatorSetBool");

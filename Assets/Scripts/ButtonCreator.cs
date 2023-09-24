@@ -25,11 +25,12 @@ public class ButtonCreator : MonoBehaviour
         float randomX = Random.Range(LevelConfig.spawnZone.position.x-LevelConfig.spawnZone.localScale.x/2f, LevelConfig.spawnZone.position.x + LevelConfig.spawnZone.localScale.x/2f);
         float randomY = Random.Range(LevelConfig.spawnZone.position.y - LevelConfig.spawnZone.localScale.y / 2f, LevelConfig.spawnZone.position.y + LevelConfig.spawnZone.localScale.y / 2f);
         Vector2 whereToSpawn = new Vector2(randomX, randomY);
-        Instantiate(LevelConfig.EnemyButtons[Random.Range(0, LevelConfig.EnemyButtons.Length)], whereToSpawn, Quaternion.identity);
+        
+        GameObject button = Instantiate(LevelConfig.EnemyButtons[Random.Range(0, LevelConfig.EnemyButtons.Length)], whereToSpawn, Quaternion.identity);
+        Destroy(button, 4f);
     }
     EnemySpawnConfig GetChickenLevel()
     {
-       
         if (chicken != null)
         {
             switch (chicken.GetChickenSize())
