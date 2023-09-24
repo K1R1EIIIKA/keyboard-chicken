@@ -9,7 +9,8 @@ public class EnemyButton : MonoBehaviour
     [SerializeField] private BoxCollider2D damageCollider;
     [SerializeField] private Chicken chicken;
     private bool playerInside = false;
-    private Animator animator;
+    [SerializeField] private AnimationClip animationClip;
+    [SerializeField] private Animator animator;
     IEnumerator method()
     {
         yield return new WaitForSeconds(DamageDelay);
@@ -37,11 +38,13 @@ public class EnemyButton : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
+        Debug.Log("StartAnimation");
         StartAnimation();
         StartCoroutine(method());
     }
     public void StartAnimation()
     {
+        Debug.Log("AnimatorSetBool");
         animator.SetBool("IsRunning", true);
     }
 

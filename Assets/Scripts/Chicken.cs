@@ -102,6 +102,9 @@ public class Chicken : MonoBehaviour
         {   //PlayAnimation(GetHit);
             PlaySound(ChickenGetHitSound);
             DecreaseSize();
+            score = ScoreToSizes[(int)chichenSize];
+            ScoreToSizeUp= ScoreToSizes[(int)chichenSize+1]- ScoreToSizes[(int)chichenSize];
+            SetScoreUI();
         }
     }
     private void OnTriggerEnter2D(Collider2D collider)
