@@ -48,7 +48,7 @@ public class EnemyButton : MonoBehaviour
         animator.SetBool("IsRunning", true);
     }
 
-    // И чтобы остановить анимацию "Run":
+    // пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "Run":
     public void StopAnimation()
     {
         animator.SetBool("IsRunning", false);
