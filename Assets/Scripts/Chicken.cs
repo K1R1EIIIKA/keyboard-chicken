@@ -30,6 +30,7 @@ public class Chicken : MonoBehaviour
     [SerializeField] private AudioClip ChickenSizeDownSound;
     [SerializeField] private AudioClip ChickenStepSound;
     [SerializeField] private AudioClip ChickenSpitSound;
+
     void Awake()
     {
         ScoreToSizeUp = ScoreToSizes[0];
@@ -117,7 +118,24 @@ public class Chicken : MonoBehaviour
         }
         if (collider.CompareTag("Enemy"))
         {
-            GetHit();
+            if ((int)chichenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chichenSize])
+            {
+                ScoreToSizeUp = ScoreToSizes[(int)chichenSize];
+            }
+
+            else
+            {
+                ScoreToSizeUp += 2;
+            }
+            
+            
+            if((int)chichenSize >= 1 && (ScoreToSizeUp > ScoreToSizes[(int)chichenSize]- ScoreToSizes[(int)chichenSize-1]))
+                {
+                        GetHit();
+                }
+            
+            
+            
             BaseCrumb baseCrumb = collider.gameObject.GetComponent<BaseCrumb>();
             baseCrumb.GetHit();
         }
