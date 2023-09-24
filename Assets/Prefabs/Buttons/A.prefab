@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: -6367083996036955814}
   - component: {fileID: 8249950207961124318}
   - component: {fileID: 597290947836095540}
+  - component: {fileID: -3280346924498423731}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -101,6 +102,9 @@ MonoBehaviour:
   AnimationSpeed: 1
   DamageDelay: 0
   damageCollider: {fileID: 597290947836095540}
+  chicken: {fileID: 0}
+  animationClip: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!61 &597290947836095540
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,3 +150,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.58, y: 0.62}
   m_EdgeRadius: 0
+--- !u!95 &-3280346924498423731
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4022959172970112056}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cca418da8aa2da647bbf2104ef24288d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

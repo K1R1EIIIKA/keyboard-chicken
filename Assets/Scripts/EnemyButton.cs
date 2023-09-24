@@ -7,20 +7,50 @@ public class EnemyButton : MonoBehaviour
     [SerializeField] private float AnimationSpeed=1;
     [SerializeField] private float DamageDelay=0;
     [SerializeField] private BoxCollider2D damageCollider;
+    [SerializeField] private Chicken chicken;
+    private bool playerInside = false;
+    [SerializeField] private AnimationClip animationClip;
+    [SerializeField] private Animator animator;
+    IEnumerator method()
+    {
+        yield return new WaitForSeconds(DamageDelay);
+        if(playerInside)
+        {
+            chicken.GetHit();
+        }
+        Destroy(this);
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInside = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInside = false;
+        }
+    }
     private void Start()
     {
-        DeactivateDamageZone();
-        // playAnimation  for DamageDelay seconds with AnimationSpeed speed;
-        //OnAnimationEnd():
-        ActivateDamageZone();
-        //Destroy(this);
+        animator = GetComponent<Animator>();
+        Debug.Log("StartAnimation");
+        StartAnimation();
+        StartCoroutine(method());
     }
-    public void ActivateDamageZone()
+    public void StartAnimation()
     {
-        damageCollider.enabled = true;
+        Debug.Log("AnimatorSetBool");
+        animator.SetBool("IsRunning", true);
     }
-    public void DeactivateDamageZone()
+
+    // И чтобы остановить анимацию "Run":
+    public void StopAnimation()
     {
-        damageCollider.enabled = false;
+        animator.SetBool("IsRunning", false);
     }
 }

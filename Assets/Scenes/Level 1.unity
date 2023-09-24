@@ -1522,29 +1522,49 @@ MonoBehaviour:
     - {fileID: 5029739115031181230, guid: 861eb2e9617d1fd449a6065447e29c5e, type: 3}
     crumbWithMass:
     - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
     spawnDelay: 1
     crumbToSpawnAmount: 1
     coefficient: 3
   SecondLevel:
-    CrumbPrefabs: []
-    crumbWithMass: []
+    CrumbPrefabs:
+    - {fileID: 5029739115031181230, guid: 915a644ecd1328e41997c15c33bc9ab4, type: 3}
+    - {fileID: 5029739115031181230, guid: 861eb2e9617d1fd449a6065447e29c5e, type: 3}
+    - {fileID: 5029739115031181230, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
+    crumbWithMass:
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
     spawnDelay: 1
     crumbToSpawnAmount: 1
     coefficient: 3
   ThirdLevel:
-    CrumbPrefabs: []
-    crumbWithMass: []
+    CrumbPrefabs:
+    - {fileID: 5029739115031181230, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
+    - {fileID: 5029739115031181230, guid: 861eb2e9617d1fd449a6065447e29c5e, type: 3}
+    - {fileID: 5029739115031181230, guid: 915a644ecd1328e41997c15c33bc9ab4, type: 3}
+    crumbWithMass:
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
     spawnDelay: 1
     crumbToSpawnAmount: 1
     coefficient: 3
   FourthLevel:
-    CrumbPrefabs: []
-    crumbWithMass: []
+    CrumbPrefabs:
+    - {fileID: 5029739115031181230, guid: 915a644ecd1328e41997c15c33bc9ab4, type: 3}
+    - {fileID: 5029739115031181230, guid: 861eb2e9617d1fd449a6065447e29c5e, type: 3}
+    - {fileID: 5029739115031181230, guid: fdfaa9144c78fc848898729bcf5a6e52, type: 3}
+    crumbWithMass:
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
+    - {fileID: 5029739115031181230, guid: c0bb139e0c3306e4a93e482de0ccaa90, type: 3}
     spawnDelay: 1
     crumbToSpawnAmount: 1
     coefficient: 3
   nextSpawn: 0
-  chicken: {fileID: 0}
+  chicken: {fileID: 1835707692}
 --- !u!4 &906041462
 Transform:
   m_ObjectHideFlags: 0
@@ -1802,7 +1822,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4022959172970112056, guid: 519b6e0fdd45b1343966ac59a30670e6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771544605}
   m_SourcePrefab: {fileID: 100100000, guid: 519b6e0fdd45b1343966ac59a30670e6, type: 3}
 --- !u!1 &1203004076
 GameObject:
@@ -2735,6 +2758,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 915a644ecd1328e41997c15c33bc9ab4, type: 3}
+--- !u!1 &1771544604 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4022959172970112056, guid: 519b6e0fdd45b1343966ac59a30670e6, type: 3}
+  m_PrefabInstance: {fileID: 1186646573}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1771544605
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771544604}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cca418da8aa2da647bbf2104ef24288d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1778103825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2896,9 +2945,9 @@ GameObject:
   - component: {fileID: 1835707688}
   - component: {fileID: 1835707690}
   - component: {fileID: 1835707691}
-  - component: {fileID: 1835707687}
   - component: {fileID: 1835707686}
   - component: {fileID: 1835707692}
+  - component: {fileID: 1835707693}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Player
@@ -2933,41 +2982,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &1835707687
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835707685}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!212 &1835707688
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3085,9 +3099,9 @@ MonoBehaviour:
   ScoreToNextLvl: 3
   ChickenScalers:
   - 1
-  - 1.1
-  - 1.3
-  - 10
+  - 1.5
+  - 2
+  - 2.5
   chichenSize: 0
   SizeSprites:
   - {fileID: 21300000, guid: 41f8dd971a5c049478ee686a447bb8a8, type: 3}
@@ -3101,6 +3115,51 @@ MonoBehaviour:
   ChickenSizeDownSound: {fileID: 0}
   ChickenStepSound: {fileID: 0}
   ChickenSpitSound: {fileID: 0}
+--- !u!61 &1835707693
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835707685}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.022969007, y: -0.2226223}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.68, y: 0.62}
+    newSize: {x: 0.68, y: 0.62}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22768784, y: 0.1747554}
+  m_EdgeRadius: 0
 --- !u!1 &1934499910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3117,7 +3176,7 @@ GameObject:
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1934499911
 MonoBehaviour:
   m_ObjectHideFlags: 0
