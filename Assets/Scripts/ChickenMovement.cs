@@ -9,6 +9,7 @@ public class ChickenMovement : MonoBehaviour
     [SerializeField] private float downSpeed = 2f;
     [SerializeField] private float flyForce;
     [SerializeField] private float velocityNormalizeSpeed = 0.02f;
+    [SerializeField] private Animator animator;
 
     private Rigidbody2D _rb;
 
@@ -43,6 +44,22 @@ public class ChickenMovement : MonoBehaviour
             else
                 _rb.velocity = 
                     Vector2.MoveTowards(_rb.velocity, new Vector2(0, _rb.velocity.y), velocityNormalizeSpeed * 2);
+        }
+    }
+    
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Ground"))
+        {
+            animator.SetBool("IsGround", true);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("Ground"))
+        {
+            animator.SetBool("IsGround", false);
         }
     }
 
