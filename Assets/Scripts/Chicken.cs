@@ -38,7 +38,7 @@ public class Chicken : MonoBehaviour
     {
         score += Score;
         ScoreToSizeUp -= Score;
-        if (ScoreToSizeUp < 1 )
+        if (ScoreToSizeUp < 1)
         {
             if (chichenSize < ChichenSize.SuperPuperMegaCHICKEN)
             {
@@ -81,7 +81,7 @@ public class Chicken : MonoBehaviour
     void ChangeScale()
     {
         Transform transform = GetComponent<Transform>();
-        Debug.Log("Chickensize:"+ (int)chichenSize);
+        Debug.Log("Chickensize:" + (int)chichenSize);
         Debug.Log("nowscale:" + ChickenScalers[(int)chichenSize]);
         float nowscale = ChickenScalers[(int)chichenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
@@ -108,14 +108,23 @@ public class Chicken : MonoBehaviour
     {
         Debug.Log("ChickenTriggerEnter()");
         EnemyButton enemyButton = collider.gameObject.GetComponent<EnemyButton>();
-        if(enemyButton != null)
+        if (enemyButton != null)
         {
             GetHit();
         }
+        if (collider.CompareTag("Enemy"))
+        {
+            GetHit();
+            BaseCrumb baseCrumb = collider.gameObject.GetComponent<BaseCrumb>();
+            baseCrumb.GetHit();
+        }
+
     }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
             GetScore(1);
     }
+
+    
 }

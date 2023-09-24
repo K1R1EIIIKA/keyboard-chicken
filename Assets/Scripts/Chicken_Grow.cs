@@ -20,11 +20,11 @@ public class Chicken_Grow : MonoBehaviour
                  transform.localScale += new Vector3(grow,grow,grow); 
             }
         }
-        if (collision.CompareTag("Enemy"))
+      /*  if (collision.CompareTag("Enemy"))
         {
             //Checken chicken = other.GetComponent<chicken>();
            // chicken.GetHit();
-        }
+        }*/
 
     }
 
