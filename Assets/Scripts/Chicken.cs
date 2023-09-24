@@ -107,12 +107,11 @@ public class Chicken : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
         Debug.Log("ChickenTriggerEnter()");
-        EnemyButton enemyButton= collider.gameObject.GetComponent<EnemyButton>();
+        EnemyButton enemyButton = collider.gameObject.GetComponent<EnemyButton>();
         if(enemyButton != null)
         {
             GetHit();
         }
-        
     }
     private void Update()
     {
