@@ -187,3 +187,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: 1
   Size: 1.5
+  EnemyOrNo: 5

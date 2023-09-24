@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: 1
   Size: 1.5
+  EnemyOrNo: 1
 --- !u!114 &-7519904456455511570
 MonoBehaviour:
   m_ObjectHideFlags: 0
