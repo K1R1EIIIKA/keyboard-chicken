@@ -27,7 +27,7 @@ public class ButtonCreator : MonoBehaviour
         Vector2 whereToSpawn = new Vector2(randomX, randomY);
         
         GameObject button = Instantiate(LevelConfig.EnemyButtons[Random.Range(0, LevelConfig.EnemyButtons.Length)], whereToSpawn, Quaternion.identity);
-        Destroy(button, 2f);
+        
     }
     EnemySpawnConfig GetChickenLevel()
     {

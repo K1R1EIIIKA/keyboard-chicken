@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public float speed = 20f;
     public GameObject[] crumbWithMass;
     public Rigidbody2D rb;
+    [SerializeField] AudioSource source;
+    [SerializeField] AudioClip CrumbCrashSound;//ok
     private int[] crumbs = new int[3];
 
     // Start is called before the first frame update
@@ -19,6 +21,7 @@ public class Bullet : MonoBehaviour
     {
         if (hitInfo.CompareTag("Enemy"))
         {
+            source.PlayOneShot(CrumbCrashSound);
             GameObject Enemy;
             BaseCrumb baseCrumb = hitInfo.gameObject.GetComponent<BaseCrumb>();
 
