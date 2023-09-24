@@ -7,19 +7,18 @@ public class EnemyButton : MonoBehaviour
     [SerializeField] private float AnimationSpeed = 1;
     [SerializeField] private float DamageDelay = 0;
     [SerializeField] private BoxCollider2D damageCollider;
-    private Chicken chicken;
-    private bool playerInside = false;
-    [SerializeField] private AnimationClip animationClip;
+    [SerializeField] private Chicken chicken;
+    [SerializeField] private bool playerInside = false;
     [SerializeField] private Animator animator;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip ButtonFallSound;//ok
     IEnumerator method()
     {
         yield return new WaitForSeconds(DamageDelay);
-        source.PlayOneShot(ButtonFallSound);
+        //Debug.Log("method Started");
+
         if (playerInside)
         {
-            Debug.Log("Chicken.GetHit()");
             chicken.GetHit();
         }
 
@@ -30,6 +29,7 @@ public class EnemyButton : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Debug.Log("playerInside");
             if (chicken == null)
                 chicken = other.gameObject.GetComponent<Chicken>();
             playerInside = true;
@@ -43,9 +43,18 @@ public class EnemyButton : MonoBehaviour
             playerInside = false;
         }
     }
+    IEnumerator PlaySound()
+    {
+        yield return new WaitForSeconds(DamageDelay-0.5f);
+        source.PlayOneShot(ButtonFallSound);
+    }
     private void Start()
     {
         StartCoroutine(method());
+        if (ButtonFallSound == null) Debug.LogWarning("Missing ButtonFallSound sound");
+        else StartCoroutine(PlaySound());
+        animator.speed = AnimationSpeed;
         Destroy(gameObject, DamageDelay+0.1f);
+
     }
 }

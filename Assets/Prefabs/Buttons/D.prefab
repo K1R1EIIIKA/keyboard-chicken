@@ -100,11 +100,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationSpeed: 1
-  DamageDelay: 0
+  DamageDelay: 2
   damageCollider: {fileID: 3086634024321255574}
-  chicken: {fileID: 0}
   animationClip: {fileID: 0}
   animator: {fileID: -3646530020428827012}
+  source: {fileID: 0}
+  ButtonFallSound: {fileID: 0}
 --- !u!61 &3086634024321255574
 BoxCollider2D:
   m_ObjectHideFlags: 0

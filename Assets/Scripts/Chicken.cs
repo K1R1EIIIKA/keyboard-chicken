@@ -133,7 +133,7 @@ public class Chicken : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("ChickenTriggerEnter()");
+        Debug.Log("ChickenTriggerEnter2D()");
         if (collider.CompareTag("Enemy") || collider.CompareTag("EnemySmall"))
         {
             if ((int)chickenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chickenSize])
