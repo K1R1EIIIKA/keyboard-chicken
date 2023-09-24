@@ -15,6 +15,7 @@ public class EnemyButton : MonoBehaviour
     IEnumerator method()
     {
         yield return new WaitForSeconds(DamageDelay);
+        
         if (playerInside)
         {
             chicken.GetHit();
@@ -38,23 +39,8 @@ public class EnemyButton : MonoBehaviour
             playerInside = false;
         }
     }
-
     private void Start()
     {
-        Debug.Log("StartAnimation");
-        StartAnimation();
         StartCoroutine(method());
-    }
-
-    public void StartAnimation()
-    {
-        Debug.Log("AnimatorSetBool");
-        animator.SetBool("IsRunning", true);
-    }
-
-    // � ����� ���������� �������� "Run":
-    public void StopAnimation()
-    {
-        animator.SetBool("IsRunning", false);
     }
 }

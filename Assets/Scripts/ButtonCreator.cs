@@ -27,13 +27,13 @@ public class ButtonCreator : MonoBehaviour
         Vector2 whereToSpawn = new Vector2(randomX, randomY);
         
         GameObject button = Instantiate(LevelConfig.EnemyButtons[Random.Range(0, LevelConfig.EnemyButtons.Length)], whereToSpawn, Quaternion.identity);
-        Destroy(button, 4f);
+        Destroy(button, 2f);
     }
     EnemySpawnConfig GetChickenLevel()
     {
         if (chicken != null)
         {
-            switch (chicken.GetChickenSize())
+            switch (MenuNavigation.LevelNumber)
             {
                 case 0: return FirstLevel;
                 case 1: return SecondLevel;
@@ -42,7 +42,8 @@ public class ButtonCreator : MonoBehaviour
                 default: return null;
             }
         }
-        else return null;
+        
+        return null;
     }
     private void Update()
     {

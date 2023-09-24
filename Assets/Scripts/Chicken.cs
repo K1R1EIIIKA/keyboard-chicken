@@ -3,16 +3,25 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Chicken : MonoBehaviour
 {
-    public enum ChichenSize
+    public enum ChickenSize
     {
-        tiny = 0,
-        small,
-        average,
+        Tiny = 0,
+        Small,
+        Average,
         SuperPuperMegaCHICKEN
+    }
+
+    public enum ChickenAge
+    {
+        First = 0,
+        Second,
+        Third,
+        Fourth
     }
 
     public int score = 0;
@@ -20,8 +29,10 @@ public class Chicken : MonoBehaviour
     [SerializeField] public int[] ScoreToSizes;
     public int ScoreToNextLvl = 999;
     [SerializeField] public float[] ChickenScalers;
-    public ChichenSize chichenSize = ChichenSize.tiny;
+    public ChickenSize chickenSize = ChickenSize.Tiny;
+    public ChickenAge chickenAge = ChickenAge.First;
     public Sprite[] SizeSprites;
+
     [SerializeField] private GameController gameController;
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ChickenGetHitSound;
@@ -41,11 +52,11 @@ public class Chicken : MonoBehaviour
         ScoreToSizeUp -= Score;
         if (ScoreToSizeUp < 1)
         {
-            if (chichenSize < ChichenSize.SuperPuperMegaCHICKEN)
+            if (chickenSize < ChickenSize.SuperPuperMegaCHICKEN)
             {
                 IncreaseSize();
                 gameController.LoadNextLevel();
-                ScoreToSizeUp = ScoreToSizes[(int)chichenSize] - score;
+                ScoreToSizeUp = ScoreToSizes[(int)chickenSize] - score;
             }
             else UWin();
         }
@@ -58,7 +69,9 @@ public class Chicken : MonoBehaviour
         //PlayEngGameScene();
     }
 
-    public int GetChickenSize() => (int)chichenSize;
+    public int GetChickenSize() => (int)chickenSize;
+
+    public int GetChickenAge() => (int)chickenAge;
 
     private void SetScoreUI()
     {
@@ -67,7 +80,7 @@ public class Chicken : MonoBehaviour
 
     public void IncreaseSize()
     {
-        chichenSize++;
+        chickenSize++;
         //PlayAnimation(SizeUp);
         PlaySound(ChickenSizeUpSound);
         ChangeScale();
@@ -76,7 +89,7 @@ public class Chicken : MonoBehaviour
 
     public void DecreaseSize()
     {
-        chichenSize--;
+        chickenSize--;
         //PlayAnimation(SizeDown);
         PlaySound(ChickenSizeDownSound);
         ChangeScale();
@@ -86,15 +99,15 @@ public class Chicken : MonoBehaviour
     void ChangeScale()
     {
         Transform transform = GetComponent<Transform>();
-        Debug.Log("Chickensize:" + (int)chichenSize);
-        Debug.Log("nowscale:" + ChickenScalers[(int)chichenSize]);
-        float nowscale = ChickenScalers[(int)chichenSize];
+        Debug.Log("Chickensize:" + (int)chickenSize);
+        Debug.Log("nowscale:" + ChickenScalers[(int)chickenSize]);
+        float nowscale = ChickenScalers[(int)chickenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
     }
 
     void ChangeSprite()
     {
-        GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chichenSize];
+        GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chickenSize];
     }
 
     void PlaySound(AudioClip clip)
@@ -110,8 +123,8 @@ public class Chicken : MonoBehaviour
             //PlayAnimation(GetHit);
             PlaySound(ChickenGetHitSound);
             DecreaseSize();
-            score = ScoreToSizes[(int)chichenSize];
-            ScoreToSizeUp = ScoreToSizes[(int)chichenSize + 1] - ScoreToSizes[(int)chichenSize];
+            score = ScoreToSizes[(int)chickenSize];
+            ScoreToSizeUp = ScoreToSizes[(int)chickenSize + 1] - ScoreToSizes[(int)chickenSize];
             SetScoreUI();
         }
     }
@@ -127,9 +140,9 @@ public class Chicken : MonoBehaviour
 
         if (collider.CompareTag("Enemy"))
         {
-            if ((int)chichenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chichenSize])
+            if ((int)chickenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chickenSize])
             {
-                ScoreToSizeUp = ScoreToSizes[(int)chichenSize];
+                ScoreToSizeUp = ScoreToSizes[(int)chickenSize];
             }
 
             else
@@ -137,13 +150,11 @@ public class Chicken : MonoBehaviour
                 ScoreToSizeUp += 2;
             }
             
-            
-            if((int)chichenSize >= 1 && (ScoreToSizeUp > ScoreToSizes[(int)chichenSize]- ScoreToSizes[(int)chichenSize-1]))
-                {
-                        GetHit();
-                }
-            
-            
+            if ((int)chickenSize >= 1 &&
+                (ScoreToSizeUp > ScoreToSizes[(int)chickenSize] - ScoreToSizes[(int)chickenSize - 1]))
+            {
+                GetHit();
+            }
             
             BaseCrumb baseCrumb = collider.gameObject.GetComponent<BaseCrumb>();
             baseCrumb.GetHit();
