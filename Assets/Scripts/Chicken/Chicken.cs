@@ -164,9 +164,9 @@ public class Chicken : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.M))
-            GetScore(5);
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.M))
+    //         GetScore(5);
+    // }
 }
