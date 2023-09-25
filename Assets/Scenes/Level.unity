@@ -694,6 +694,7 @@ MonoBehaviour:
   startDelay: 2
   spawnDelay: 1
   someBool: 0
+  someBool2: 0
 --- !u!4 &303003997
 Transform:
   m_ObjectHideFlags: 0
@@ -3042,8 +3043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: 242.59662}
-  m_SizeDelta: {x: 400, y: 36.8068}
+  m_AnchoredPosition: {x: -27.6472, y: 57.2063}
+  m_SizeDelta: {x: 95.5057, y: 21.1942}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1355451933
 GameObject:
@@ -3684,8 +3685,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPushback: 3
   shootCooldown: 0.5
-  source: {fileID: 0}
-  SpitSound: {fileID: 0}
+  source: {fileID: 519420033}
+  SpitSound: {fileID: 8300000, guid: c29e2b0e5046f8e45b9dbc18b69cb73c, type: 3}
   chicken: {fileID: 1835707692}
   firePoint: {fileID: 1971096093}
   bulletPrefab: {fileID: 9013785331054888799, guid: 1c8f0028767c51a4396d3476b941ff42, type: 3}
@@ -3720,6 +3721,7 @@ MonoBehaviour:
   gameController: {fileID: 657950325}
   soundSource: {fileID: 519420033}
   ChickenGetHitSound: {fileID: 0}
+  ChickenJumpSound: {fileID: 8300000, guid: 80c4d1fd74f3abc478968cab6edc5f7b, type: 3}
   ChickenSizeUpSound: {fileID: 0}
   ChickenSizeDownSound: {fileID: 0}
   ChickenStepSound: {fileID: 0}
@@ -3874,7 +3876,8 @@ MonoBehaviour:
     MinSpawnDelay: 0.5
     MaxSpawnDelay: 1
     DamageDelay: 0
-    EnemyButtons: []
+    EnemyButtons:
+    - {fileID: 5505945252992735256, guid: 2c3a959b69b45c3439e275b45f21532f, type: 3}
     XSize: 0
     YSize: 0
     spawnZone: {fileID: 4230129}
@@ -3893,8 +3896,6 @@ MonoBehaviour:
     MaxSpawnDelay: 2
     DamageDelay: 0
     EnemyButtons:
-    - {fileID: 4022959172970112056, guid: 519b6e0fdd45b1343966ac59a30670e6, type: 3}
-    - {fileID: 4022959172970112056, guid: c39abdad88bb03f4bab99026f72b56b2, type: 3}
     - {fileID: 5505945252992735256, guid: b49552fee40cbcf40a7c633c0d2b3f8b, type: 3}
     XSize: 0
     YSize: 0
@@ -3907,6 +3908,7 @@ MonoBehaviour:
     - {fileID: 4022959172970112056, guid: 519b6e0fdd45b1343966ac59a30670e6, type: 3}
     - {fileID: 4022959172970112056, guid: c39abdad88bb03f4bab99026f72b56b2, type: 3}
     - {fileID: 5505945252992735256, guid: b49552fee40cbcf40a7c633c0d2b3f8b, type: 3}
+    - {fileID: 5505945252992735256, guid: 2c3a959b69b45c3439e275b45f21532f, type: 3}
     XSize: 0
     YSize: 0
     spawnZone: {fileID: 1699120175}

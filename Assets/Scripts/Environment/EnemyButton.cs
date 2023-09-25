@@ -5,7 +5,8 @@ using UnityEngine;
 public class EnemyButton : MonoBehaviour
 {
     [SerializeField] private float AnimationSpeed = 1;
-    [SerializeField] private float DamageDelay = 0;
+    [SerializeField] private float DamageDelay = 2;
+    [SerializeField] private float SoundDelay = 1.5f;
     [SerializeField] private BoxCollider2D damageCollider;
     [SerializeField] private Chicken chicken;
     [SerializeField] private bool playerInside = false;
@@ -45,7 +46,7 @@ public class EnemyButton : MonoBehaviour
 
     IEnumerator PlaySound()
     {
-        yield return new WaitForSeconds(DamageDelay - 0.5f);
+        yield return new WaitForSeconds(SoundDelay);
         source.PlayOneShot(ButtonFallSound);
     }
 

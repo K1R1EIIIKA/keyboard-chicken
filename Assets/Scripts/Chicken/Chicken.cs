@@ -50,7 +50,10 @@ public class Chicken : MonoBehaviour
         ChangeScale();
         animator = gameObject.GetComponent<Animator>();
     }
-
+    public void PlayJumpSound()
+    {
+        PlaySound(ChickenJumpSound);
+    }
     public void GetScore(int Score)
     {
         animator.SetTrigger("Eat");
@@ -95,7 +98,6 @@ public class Chicken : MonoBehaviour
     public void IncreaseSize()
     {
         chickenSize++;
-        //animator.SetBool("IsRunnning", true);
         PlaySound(ChickenSizeUpSound);
         ChangeScale();
     }
@@ -113,7 +115,6 @@ public class Chicken : MonoBehaviour
         //PlayAnimation(SizeDown);
         PlaySound(ChickenSizeDownSound);
         ChangeScale();
-        ChangeSprite();
     }
 
     void ChangeScale()
@@ -138,7 +139,7 @@ public class Chicken : MonoBehaviour
         Debug.Log("ChickenGetHit()");
         if (GetChickenSize() > 0)
         {
-            //PlayAnimation(GetHit);
+            animator.SetTrigger("Hit");
             PlaySound(ChickenGetHitSound);
             DecreaseSize();
             score = ScoreToSizes[(int)chickenSize];
@@ -152,32 +153,14 @@ public class Chicken : MonoBehaviour
         Debug.Log("ChickenTriggerEnter2D()");
         if (collider.CompareTag("Enemy") || collider.CompareTag("EnemySmall"))
         {
-            animator.SetTrigger("Hit");
-            if ((int)chickenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chickenSize])
-            {
-                ScoreToSizeUp = ScoreToSizes[(int)chickenSize];
-            }
-
-            else
-            {
-                if (collider.CompareTag("Enemy"))
-                {
-                    ScoreToSizeUp += 6;
-                }
-                else
-                {
-                    ScoreToSizeUp += 1;
-                }
-            }
-
-            if ((int)chickenSize >= 1 &&
-                (ScoreToSizeUp > ScoreToSizes[(int)chickenSize] - ScoreToSizes[(int)chickenSize - 1]))
+            GetHit();
+            if (collider.CompareTag("Enemy"))
             {
                 GetHit();
             }
-
             BaseCrumb baseCrumb = collider.gameObject.GetComponent<BaseCrumb>();
-            baseCrumb.GetHit();
+            if(baseCrumb!=null)
+                baseCrumb.GetHit();
         }
     }
 
