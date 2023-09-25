@@ -10,7 +10,7 @@ public class MenuNavigation : MonoBehaviour
     public void Level1()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Level 1");
+        SceneManager.LoadScene("Level");
     }
 
     public void MainMenu()
