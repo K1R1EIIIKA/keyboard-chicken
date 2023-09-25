@@ -5,14 +5,13 @@ using UnityEngine;
 public class BaseCrumb : MonoBehaviour
 {
     public int Score = 0;
-    [SerializeField]
-    private float Size = 1;
+    [SerializeField] private float Size = 1;
     public int EnemyOrNo;
+    
     public void GetHit()
     {
         Destroy(this.gameObject);
     }
-    public int GetScore() => Score; 
-
-
+    
+    public int GetScore() => Score;
 }

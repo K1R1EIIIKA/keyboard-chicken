@@ -8,8 +8,7 @@ public class PlatformMove : MonoBehaviour
 
     void FixedUpdate()
     {
-
-        // Изменяем позицию платформы
-        transform.position = new Vector2(transform.position.x -  speed * Time.fixedDeltaTime, transform.position.y);
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+        transform.position = new Vector2(transform.position.x - speed * Time.fixedDeltaTime, transform.position.y);
     }
 }

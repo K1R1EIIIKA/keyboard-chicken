@@ -11,7 +11,8 @@ public class EnemyButton : MonoBehaviour
     [SerializeField] private bool playerInside = false;
     [SerializeField] private Animator animator;
     [SerializeField] AudioSource source;
-    [SerializeField] AudioClip ButtonFallSound;//ok
+    [SerializeField] AudioClip ButtonFallSound; //ok
+
     IEnumerator method()
     {
         yield return new WaitForSeconds(DamageDelay);
@@ -21,8 +22,6 @@ public class EnemyButton : MonoBehaviour
         {
             chicken.GetHit();
         }
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -43,18 +42,19 @@ public class EnemyButton : MonoBehaviour
             playerInside = false;
         }
     }
+
     IEnumerator PlaySound()
     {
-        yield return new WaitForSeconds(DamageDelay-0.5f);
+        yield return new WaitForSeconds(DamageDelay - 0.5f);
         source.PlayOneShot(ButtonFallSound);
     }
+
     private void Start()
     {
         StartCoroutine(method());
         if (ButtonFallSound == null) Debug.LogWarning("Missing ButtonFallSound sound");
         else StartCoroutine(PlaySound());
         animator.speed = AnimationSpeed;
-        Destroy(gameObject, DamageDelay+0.1f);
-
+        Destroy(gameObject, DamageDelay + 0.1f);
     }
 }

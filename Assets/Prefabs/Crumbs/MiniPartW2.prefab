@@ -172,7 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6f02f18ff4f4b4eb43e6e524fd5509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Score: 1
+  Score: 2
   Size: 1.5
   EnemyOrNo: 1
 --- !u!114 &-7519904456455511570

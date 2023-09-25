@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class ChickenMovement : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    [SerializeField] private float speed = 4f;
     [SerializeField] private float downSpeed = 2f;
-    [SerializeField] private float flyForce;
+    [SerializeField] private float flyForce = 4.5f;
+    [SerializeField] private float bounceForce = 8f;
     [SerializeField] private float velocityNormalizeSpeed = 0.02f;
     [SerializeField] private Animator animator;
 
@@ -63,6 +64,15 @@ public class ChickenMovement : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.transform.CompareTag("BounceGround"))
+        {
+            _rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+        }
+    }
+
+    
     private void Move()
     {
         float axisHorizontal = Input.GetAxisRaw("Horizontal");

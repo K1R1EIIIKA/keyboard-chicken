@@ -6,7 +6,7 @@ public class Weapon : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
-    
+
     void Update()
     {
         if (Input.GetKey("l"))
@@ -19,6 +19,5 @@ public class Weapon : MonoBehaviour
     {
         //shooting logic
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-
     }
 }

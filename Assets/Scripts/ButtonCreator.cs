@@ -22,10 +22,12 @@ public class ButtonCreator : MonoBehaviour
     }
     void SpawnEnemy(EnemySpawnConfig LevelConfig)
     {
+        if (LevelConfig.EnemyButtons.Length == 0) return;
+        
         float randomX = Random.Range(LevelConfig.spawnZone.position.x-LevelConfig.spawnZone.localScale.x/2f, LevelConfig.spawnZone.position.x + LevelConfig.spawnZone.localScale.x/2f);
         float randomY = Random.Range(LevelConfig.spawnZone.position.y - LevelConfig.spawnZone.localScale.y / 2f, LevelConfig.spawnZone.position.y + LevelConfig.spawnZone.localScale.y / 2f);
         Vector2 whereToSpawn = new Vector2(randomX, randomY);
-        
+
         GameObject button = Instantiate(LevelConfig.EnemyButtons[Random.Range(0, LevelConfig.EnemyButtons.Length)], whereToSpawn, Quaternion.identity);
         
     }
@@ -33,7 +35,7 @@ public class ButtonCreator : MonoBehaviour
     {
         if (chicken != null)
         {
-            switch (MenuNavigation.LevelNumber)
+            switch ((int)chicken.chickenAge)
             {
                 case 0: return FirstLevel;
                 case 1: return SecondLevel;

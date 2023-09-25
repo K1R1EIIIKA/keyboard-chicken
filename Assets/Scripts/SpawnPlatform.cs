@@ -8,29 +8,19 @@ public class SpawnPlatform : MonoBehaviour
     public float nextSpawn = 3f;
     private float randomY;
     public float spawnDelay = 1;
-    Vector2 whereToSpawn;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
+    Vector2 whereToSpawn;
+
     void Update()
     {
         if (Time.time > nextSpawn)
         {
-            GameObject Platform;
-
             nextSpawn = Time.time + spawnDelay;
             randomY = Random.Range(-4.5f, 4.5f);
-                whereToSpawn = new Vector2(transform.position.x, randomY);
-            Platform  = Instantiate(Platformss,whereToSpawn, Quaternion.identity);
-               
+            whereToSpawn = new Vector2(transform.position.x, randomY);
+            GameObject platform = Instantiate(Platformss, whereToSpawn, Quaternion.identity);
 
-                Destroy(Platform, 6f);
-            }
+            Destroy(platform, 12f);
         }
-
     }
-
+}

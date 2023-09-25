@@ -46,6 +46,7 @@ public class Chicken : MonoBehaviour
     void Awake()
     {
         ScoreToSizeUp = ScoreToSizes[0];
+        ChangeScale();
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -58,12 +59,21 @@ public class Chicken : MonoBehaviour
         PlaySound(ChickenTongueSound);
         if (ScoreToSizeUp < 1)
         {
-            if (chickenSize < ChickenSize.SuperPuperMegaCHICKEN)
+            if (chickenSize < ChickenSize.SuperPuperMegaCHICKEN && chickenAge <= ChickenAge.Fourth)
             {
                 IncreaseSize();
-                gameController.LoadNextLevel();
                 ScoreToSizeUp = ScoreToSizes[(int)chickenSize] - score;
             }
+            else if (chickenSize == ChickenSize.SuperPuperMegaCHICKEN && chickenAge < ChickenAge.Fourth)
+            {
+                gameController.LoadNextLevel();
+                chickenSize = ChickenSize.Tiny;
+                score = 0;
+                IncreaseAge();
+                ChangeScale();
+                ScoreToSizeUp = ScoreToSizes[(int)chickenSize] - score;
+            }
+            
             else UWin();
         }
 
@@ -87,17 +97,21 @@ public class Chicken : MonoBehaviour
     public void IncreaseSize()
     {
         chickenSize++;
-        animator.SetInteger("ChickLevel", (int)chickenSize);
         //animator.SetBool("IsRunnning", true);
         PlaySound(ChickenSizeUpSound);
         ChangeScale();
+    }
+
+    public void IncreaseAge()
+    {
+        chickenAge++;
+        animator.SetInteger("ChickLevel", (int)chickenAge);
         ChangeSprite();
     }
 
     public void DecreaseSize()
     {
         chickenSize--;
-        animator.SetInteger("ChickLevel", (int)chickenSize);
         //PlayAnimation(SizeDown);
         PlaySound(ChickenSizeDownSound);
         ChangeScale();
@@ -113,7 +127,7 @@ public class Chicken : MonoBehaviour
 
     void ChangeSprite()
     {
-        GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chickenSize];
+        GetComponent<SpriteRenderer>().sprite = SizeSprites[(int)chickenAge];
     }
 
     void PlaySound(AudioClip clip)
@@ -173,6 +187,6 @@ public class Chicken : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.M))
-            GetScore(1);
+            GetScore(5);
     }
 }

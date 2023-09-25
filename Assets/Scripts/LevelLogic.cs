@@ -6,7 +6,7 @@ using UnityEngine;
 public class LevelLogic : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
-    
+
     private bool _isPaused;
 
     private void Update()
@@ -24,13 +24,13 @@ public class LevelLogic : MonoBehaviour
         else
             Unpause();
     }
-    
+
     private void Pause()
     {
         pauseCanvas.SetActive(true);
         Time.timeScale = 0;
     }
-    
+
     public void Unpause()
     {
         pauseCanvas.SetActive(false);

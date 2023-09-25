@@ -11,7 +11,7 @@ public class Teacher : MonoBehaviour
 
     private void Start()
     {
-        // Получаем компонент SpriteRenderer у объекта, на котором находится изображение
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ SpriteRenderer пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = See;
         if (spriteRenderer.enabled)
@@ -22,10 +22,10 @@ public class Teacher : MonoBehaviour
 
     private void Update()
     {
-        // Проверяем, была ли нажата клавиша (в данном случае, пробел)
-        if (Input.GetKeyDown(KeyCode.D))
+        // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ (пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅ)
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.K) || Input.GetKeyDown(KeyCode.L))
         {
-            // Если изображение видимо (включено), то выключаем его и уничтожаем текущий объект
+            // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ), пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
             if (spriteRenderer.enabled)
             {
                 spriteRenderer.enabled = false;
@@ -36,7 +36,7 @@ public class Teacher : MonoBehaviour
                 
                 Destroy(this.gameObject);
             }
-            // Иначе, если изображение выключено, то включаем его
+            // пїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
             else
             {
                 spriteRenderer.enabled = true;
