@@ -51,6 +51,8 @@ public class Chicken : MonoBehaviour
 
     public void GetScore(int Score)
     {
+        animator.SetTrigger("Eat");
+        
         score += Score;
         ScoreToSizeUp -= Score;
         PlaySound(ChickenTongueSound);
@@ -85,6 +87,7 @@ public class Chicken : MonoBehaviour
     public void IncreaseSize()
     {
         chickenSize++;
+        animator.SetInteger("ChickLevel", (int)chickenSize);
         //animator.SetBool("IsRunnning", true);
         PlaySound(ChickenSizeUpSound);
         ChangeScale();
@@ -94,6 +97,7 @@ public class Chicken : MonoBehaviour
     public void DecreaseSize()
     {
         chickenSize--;
+        animator.SetInteger("ChickLevel", (int)chickenSize);
         //PlayAnimation(SizeDown);
         PlaySound(ChickenSizeDownSound);
         ChangeScale();
@@ -136,6 +140,7 @@ public class Chicken : MonoBehaviour
         Debug.Log("ChickenTriggerEnter2D()");
         if (collider.CompareTag("Enemy") || collider.CompareTag("EnemySmall"))
         {
+            animator.SetTrigger("Hit");
             if ((int)chickenSize == 0 && ScoreToSizeUp >= ScoreToSizes[(int)chickenSize])
             {
                 ScoreToSizeUp = ScoreToSizes[(int)chickenSize];
