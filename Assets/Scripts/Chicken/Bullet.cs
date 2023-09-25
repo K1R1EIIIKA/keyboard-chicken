@@ -61,7 +61,12 @@ public class Bullet : MonoBehaviour
 
             baseCrumb.GetHit();
             Debug.Log(hitInfo.name);
-            Destroy(gameObject);
+        }
+        else if(hitInfo.CompareTag("EnemySmall"))
+        {
+            BaseCrumb baseCrumb = hitInfo.gameObject.GetComponent<BaseCrumb>();
+            baseCrumb.GetHit();
+            source.PlayOneShot(CrumbCrashSound);
         }
     }
 }

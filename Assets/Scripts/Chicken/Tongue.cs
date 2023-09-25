@@ -12,11 +12,14 @@ public class Tongue : MonoBehaviour
         Debug.Log("TongueOnTriggerEnter2D");
         BaseCrumb crumb = other.GetComponent<BaseCrumb>();
         Chicken chicken = GetComponentInParent<Chicken>();
-        
+
         if (crumb != null && chicken != null)
         {
-            chicken.GetScore(crumb.GetScore());
-            crumb.GetHit();
+            if (crumb.CompareTag("Food")) 
+            {
+                chicken.GetScore(crumb.GetScore());
+                crumb.GetHit();
+            }
         }
     }
 }
