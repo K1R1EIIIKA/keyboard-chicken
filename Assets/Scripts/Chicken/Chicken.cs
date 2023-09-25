@@ -23,15 +23,15 @@ public class Chicken : MonoBehaviour
         Third,
         Fourth
     }
+    [SerializeField]
+    private int score;
     [System.Serializable]
     class ColliderConfig
     {
-        [SerializeField] public float ofa;
-        [SerializeField] public float ofb;
-        [SerializeField] public float sizea;
-        [SerializeField] public float sizeb;
+        [SerializeField] public Vector2 offset;
+        [SerializeField] public Vector2 size;
     }
-    [SerializeField] private ColliderConfig a, b, c, d;
+    [SerializeField] private ColliderConfig[] ColliderConfigs;
     public int ScoreToSizeUp = 1;
     [SerializeField] public int[] ScoreToSizes;
     public int ScoreToNextLvl = 999;
@@ -40,17 +40,15 @@ public class Chicken : MonoBehaviour
     public ChickenAge chickenAge = ChickenAge.First;
     public Sprite[] SizeSprites;
     private Animator animator;
-    [SerializeField]
-    private LevelLogic
-     levelLogic;
+    [SerializeField] private bool DeveloperMode;
+    [SerializeField] private LevelLogic levelLogic;
     [SerializeField] private GameController gameController;
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ChickenGetHitSound;
     [SerializeField] private AudioClip ChickenJumpSound;//ok
     [SerializeField] private AudioClip ChickenSizeUpSound; //ok
     [SerializeField] private AudioClip ChickenSizeDownSound; //ok
-    [SerializeField] private AudioClip ChickenStepSound;
-    [SerializeField] private AudioClip ChickenFlySound;
+    [SerializeField] private AudioClip ChickenBounceSound;
     [SerializeField] private AudioClip ChickenTongueSound; //ok
 
     void Awake()
@@ -107,13 +105,14 @@ public class Chicken : MonoBehaviour
     public void IncreaseSize()
     {
         chickenSize++;
-        PlaySound(ChickenSizeUpSound);
+       
         ChangeScale();
     }
 
     public void IncreaseAge()
     {
         chickenAge++;
+        PlaySound(ChickenSizeUpSound);
         animator.SetInteger("ChickLevel", (int)chickenAge);
         ChangeSprite();
     }
@@ -131,6 +130,9 @@ public class Chicken : MonoBehaviour
         Transform transform = GetComponent<Transform>();
         float nowscale = ChickenScalers[(int)chickenSize];
         transform.localScale = new Vector3(nowscale, nowscale, nowscale);
+        BoxCollider2D col = GetComponent<BoxCollider2D>();
+        col.offset = ColliderConfigs[(int)chickenSize].offset;
+        col.size= ColliderConfigs[(int)chickenSize].size;
     }
 
     void ChangeSprite()
@@ -173,9 +175,10 @@ public class Chicken : MonoBehaviour
         }
     }
 
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.M))
-    //         GetScore(5);
-    // }
+     private void Update()
+     {
+        if(DeveloperMode)
+         if (Input.GetKeyDown(KeyCode.M))
+             GetScore(5);
+     }
 }
