@@ -8,7 +8,6 @@ public class Teacher : MonoBehaviour
     private bool _onOrOff = true;
     public bool See = true;
 
-
     private void Start()
     {
         // �������� ��������� SpriteRenderer � �������, �� ������� ��������� �����������

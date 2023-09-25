@@ -69,6 +69,7 @@ public class ChickenMovement : MonoBehaviour
         if (other.transform.CompareTag("BounceGround"))
         {
             _rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+            animator.SetTrigger("Hit");
         }
     }
 

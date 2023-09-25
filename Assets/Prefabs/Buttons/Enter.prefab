@@ -100,10 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AnimationSpeed: 1
-  DamageDelay: 0
+  DamageDelay: 1.5
   damageCollider: {fileID: 3149071031498986114}
   chicken: {fileID: 0}
-  animationClip: {fileID: 0}
+  playerInside: 0
   animator: {fileID: -7584654265176096110}
   source: {fileID: 0}
   ButtonFallSound: {fileID: 0}

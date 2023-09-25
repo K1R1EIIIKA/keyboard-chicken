@@ -10,6 +10,8 @@ public class ChickenShoot : MonoBehaviour
     [SerializeField] private float shootCooldown = 0.5f;
     [SerializeField] AudioSource source;
     [SerializeField] AudioClip SpitSound;//ok
+    [SerializeField] private Chicken chicken;
+    
     public Transform firePoint;
     public GameObject bulletPrefab;
 
@@ -32,13 +34,15 @@ public class ChickenShoot : MonoBehaviour
 
     private void Shoot()
     {
-        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        float scale = chicken.ChickenScalers[(int)chicken.chickenSize];
+        bullet.transform.localScale = new Vector3(4 *scale, 3 * scale, scale) * 1.5f;
+        
         source.PlayOneShot(SpitSound);
         PushBack();
         PlayShootAnimation();
          _isCooldown = true;
         StartCoroutine(ShootCooldown());
-
     }
 
     private void PlayShootAnimation()
