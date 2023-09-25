@@ -53,7 +53,7 @@ public class LevelLogic : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    /*private bool SomeMethod2()
+    private bool SomeMethod2()
     {
         GameObject autroScenaSpawnObject = GameObject.Find("AutroScenaSpawn");
 
@@ -75,7 +75,7 @@ public class LevelLogic : MonoBehaviour
         return false;
         
     }
-        private void SomeMethod()
+    private void SomeMethod()
     {
         // Находим объект "AutroScenaSpawn" в сцене
         GameObject autroScenaSpawnObject = GameObject.Find("AutroScenaSpawn");
@@ -92,8 +92,8 @@ public class LevelLogic : MonoBehaviour
                 // Устанавливаем значение переменной someBool
                 autroScenaComponent.someBool = true;
             }
-        }*/
-    
+        }
+    }
 
 }
 
