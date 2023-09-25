@@ -12,8 +12,7 @@ public class LevelLogic : MonoBehaviour
 
     private bool _isPaused;
 
-    public static bool IsWon;
-
+    public bool IsWon=false;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

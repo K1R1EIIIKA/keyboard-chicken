@@ -102,6 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationSpeed: 1
   DamageDelay: 2
+  SoundDelay: 0
   damageCollider: {fileID: 597290947836095540}
   chicken: {fileID: 0}
   playerInside: 0
