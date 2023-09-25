@@ -20,16 +20,8 @@ public class LevelLogic : MonoBehaviour
 
         if (IsWon)
         {
-            if (index)
-            {
-                SomeMethod();
-                index = false;
-            }
             
-            if (SomeMethod2())
-            {
                 Win();
-            }
         }
     }
 
@@ -61,7 +53,7 @@ public class LevelLogic : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    private bool SomeMethod2()
+    /*private bool SomeMethod2()
     {
         GameObject autroScenaSpawnObject = GameObject.Find("AutroScenaSpawn");
 
@@ -100,8 +92,8 @@ public class LevelLogic : MonoBehaviour
                 // Устанавливаем значение переменной someBool
                 autroScenaComponent.someBool = true;
             }
-        }
-    }
+        }*/
+    
 
 }
 
