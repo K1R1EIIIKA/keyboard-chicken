@@ -34,7 +34,7 @@ public class Chicken : MonoBehaviour
     public Sprite[] SizeSprites;
     private Animator animator;
 
-    [SerializeField] private LevelLogic levelLogic;
+    [SerializeField] private GameController gameController;
     [SerializeField] private AudioSource soundSource;
     [SerializeField] private AudioClip ChickenGetHitSound; //ok
     [SerializeField] private AudioClip ChickenSizeUpSound; //ok
@@ -66,6 +66,7 @@ public class Chicken : MonoBehaviour
             }
             else if (chickenSize == ChickenSize.SuperPuperMegaCHICKEN && chickenAge < ChickenAge.Fourth)
             {
+                gameController.LoadNextLevel();
                 chickenSize = ChickenSize.Tiny;
                 score = 0;
                 IncreaseAge();
@@ -74,7 +75,7 @@ public class Chicken : MonoBehaviour
             }
             else if (chickenSize == ChickenSize.SuperPuperMegaCHICKEN && chickenAge == ChickenAge.Fourth)
             {
-                levelLogic.Win();
+                LevelLogic.IsWon = true;
             }
         }
 

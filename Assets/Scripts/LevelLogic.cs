@@ -5,26 +5,29 @@ using UnityEngine;
 
 public class LevelLogic : MonoBehaviour
 {
-    [SerializeField] private  GameObject pauseCanvas;
-    [SerializeField] private  GameObject winCanvas;
+    [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject winCanvas;
 
-    private  bool _isPaused=false;
+    private bool _isPaused;
 
-    public bool IsWon = false;
+    public static bool IsWon;
 
-    private  void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             PauseLogic();
+
+        if (IsWon)
+            Win();
     }
 
-    public void Win()
+    private void Win()
     {
         Time.timeScale = 0;
         winCanvas.SetActive(true);
     }
 
-    private  void PauseLogic()
+    private void PauseLogic()
     {
         _isPaused = !_isPaused;
 
@@ -34,13 +37,13 @@ public class LevelLogic : MonoBehaviour
             Unpause();
     }
 
-    private  void Pause()
+    private void Pause()
     {
         pauseCanvas.SetActive(true);
         Time.timeScale = 0;
     }
 
-    public  void Unpause()
+    public void Unpause()
     {
         pauseCanvas.SetActive(false);
         Time.timeScale = 1;
