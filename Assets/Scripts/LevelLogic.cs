@@ -6,13 +6,25 @@ using UnityEngine;
 public class LevelLogic : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject winCanvas;
 
     private bool _isPaused;
+
+    public static bool IsWon;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             PauseLogic();
+
+        if (IsWon)
+            Win();
+    }
+
+    private void Win()
+    {
+        Time.timeScale = 0;
+        winCanvas.SetActive(true);
     }
 
     private void PauseLogic()

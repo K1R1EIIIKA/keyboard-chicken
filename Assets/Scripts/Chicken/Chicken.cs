@@ -36,12 +36,12 @@ public class Chicken : MonoBehaviour
 
     [SerializeField] private GameController gameController;
     [SerializeField] private AudioSource soundSource;
-    [SerializeField] private AudioClip ChickenGetHitSound;//ok
-    [SerializeField] private AudioClip ChickenSizeUpSound;//ok
-    [SerializeField] private AudioClip ChickenSizeDownSound;//ok
+    [SerializeField] private AudioClip ChickenGetHitSound; //ok
+    [SerializeField] private AudioClip ChickenSizeUpSound; //ok
+    [SerializeField] private AudioClip ChickenSizeDownSound; //ok
     [SerializeField] private AudioClip ChickenStepSound;
     [SerializeField] private AudioClip ChickenFlySound;
-    [SerializeField] private AudioClip ChickenTongueSound;//ok
+    [SerializeField] private AudioClip ChickenTongueSound; //ok
 
     void Awake()
     {
@@ -53,7 +53,7 @@ public class Chicken : MonoBehaviour
     public void GetScore(int Score)
     {
         animator.SetTrigger("Eat");
-        
+
         score += Score;
         ScoreToSizeUp -= Score;
         PlaySound(ChickenTongueSound);
@@ -73,16 +73,13 @@ public class Chicken : MonoBehaviour
                 ChangeScale();
                 ScoreToSizeUp = ScoreToSizes[(int)chickenSize] - score;
             }
-            
-            else UWin();
+            else if (chickenSize == ChickenSize.SuperPuperMegaCHICKEN && chickenAge == ChickenAge.Fourth)
+            {
+                LevelLogic.IsWon = true;
+            }
         }
 
         SetScoreUI();
-    }
-
-    private void UWin()
-    {
-        //PlayEngGameScene();
     }
 
     public int GetChickenSize() => (int)chickenSize;
@@ -170,15 +167,14 @@ public class Chicken : MonoBehaviour
                 {
                     ScoreToSizeUp += 1;
                 }
-
             }
-            
+
             if ((int)chickenSize >= 1 &&
                 (ScoreToSizeUp > ScoreToSizes[(int)chickenSize] - ScoreToSizes[(int)chickenSize - 1]))
             {
                 GetHit();
             }
-            
+
             BaseCrumb baseCrumb = collider.gameObject.GetComponent<BaseCrumb>();
             baseCrumb.GetHit();
         }
