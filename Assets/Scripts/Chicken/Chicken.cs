@@ -36,7 +36,8 @@ public class Chicken : MonoBehaviour
 
     [SerializeField] private GameController gameController;
     [SerializeField] private AudioSource soundSource;
-    [SerializeField] private AudioClip ChickenGetHitSound; //ok
+    [SerializeField] private AudioClip ChickenGetHitSound;
+    [SerializeField] private AudioClip ChickenJumpSound;//ok
     [SerializeField] private AudioClip ChickenSizeUpSound; //ok
     [SerializeField] private AudioClip ChickenSizeDownSound; //ok
     [SerializeField] private AudioClip ChickenStepSound;
