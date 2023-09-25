@@ -22,6 +22,7 @@ public class CrumbCreator : MonoBehaviour
     public float nextSpawn = 0.0f;
     [SerializeField] private Chicken chicken;
 
+
     CrumbSpawnConfig GetConfigLevel()
     {
         if (chicken != null)
