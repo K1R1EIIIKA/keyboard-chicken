@@ -29,6 +29,7 @@ public class ChickenShoot : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.L) && !_isCooldown)
         { 
             Shoot();
+
         }
     }
 

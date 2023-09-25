@@ -103,5 +103,8 @@ public class ChickenMovement : MonoBehaviour
     {
         _rb.velocity = Vector2.zero;
         _rb.AddForce(new Vector2(0, flyForce), ForceMode2D.Impulse);
+        Chicken chicken = GetComponent<Chicken>();
+        chicken.PlayJumpSound();
+
     }
 }
