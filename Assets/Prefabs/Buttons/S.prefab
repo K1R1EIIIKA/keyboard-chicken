@@ -102,7 +102,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AnimationSpeed: 1
   DamageDelay: 2
-  SoundDelay: 1.5
   damageCollider: {fileID: 597290947836095540}
   chicken: {fileID: 0}
   playerInside: 0
@@ -164,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 4022959172970112056}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cca418da8aa2da647bbf2104ef24288d, type: 2}
+  m_Controller: {fileID: 9100000, guid: 941cdf8c0979b3742b5b6bc86fe85d9a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
