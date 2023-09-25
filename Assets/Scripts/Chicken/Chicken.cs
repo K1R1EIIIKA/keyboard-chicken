@@ -23,8 +23,15 @@ public class Chicken : MonoBehaviour
         Third,
         Fourth
     }
-
-    public int score = 0;
+    [System.Serializable]
+    class ColliderConfig
+    {
+        [SerializeField] public float ofa;
+        [SerializeField] public float ofb;
+        [SerializeField] public float sizea;
+        [SerializeField] public float sizeb;
+    }
+    [SerializeField] private ColliderConfig a, b, c, d;
     public int ScoreToSizeUp = 1;
     [SerializeField] public int[] ScoreToSizes;
     public int ScoreToNextLvl = 999;
